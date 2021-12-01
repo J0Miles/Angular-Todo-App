@@ -12,7 +12,8 @@ module.exports = {
     extend: {},
   },
   variants: {
+    lineClamp: ['responsive', 'hover'],
     extend: {},
   },
-  plugins: [require('@tailwindcss/forms'), require('@tailwindcss/typography')],
+  plugins: [require('@tailwindcss/forms'), require('@tailwindcss/typography'), require('@tailwindcss/line-clamp')],
 };

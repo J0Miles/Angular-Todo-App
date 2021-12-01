@@ -46,7 +46,5 @@
 </section>
 
 <section>
-
-  <app-todo-item class="flex justify-center"></app-todo-item>
-
+  <app-todo-item class="flex items-center" *ngFor="let todo of todos" [todo]="todo"></app-todo-item>
 </section>

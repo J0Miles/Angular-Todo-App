@@ -8,16 +8,28 @@ import { Todo } from '../models/todo.model';
 })
 export class TodoItemComponent implements OnInit {
 
-  @Input()
-  todo!: Todo;
+  @Input() todo!: Todo
 
   @Output() todoClicked: EventEmitter<void> = new EventEmitter()
   @Output() editClicked: EventEmitter<void> = new EventEmitter()
   @Output() deleteClicked: EventEmitter<void> = new EventEmitter()
-
+  
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onTodoClicked() {
+    console.log("Todo Clicked");
+    this.todoClicked.emit()
+  }
+
+  onEditClicked() {
+    this.editClicked.emit()
+  }
+
+  onDeleteClicked() {
+    this.deleteClicked.emit()
   }
 
 }

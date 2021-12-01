@@ -1,18 +1,26 @@
-  <div class="justify-center w-screen lg:w-auto border-2 px-10 py-1 mt-2">
-    <div class="flex flex-row justify-center p-1">
-      <div class="justify-start flex text-lg border-1 border-black pr-24">
+  <div class="w-screen border-b-2 py-1 mt-2">
+    <div class="flex justify-center p-1 space-x-24 lg:space-x-96 todo-item">
+      <div class="flex lg:flex-1 text-lg border-1 border-black" (click)="onTodoClicked()"
+        [class.completed]="todo.completed" *ngIf="todo.completed">
         <button type="button"><i
-            class="fa fa-check border border-black border-opacity-50 shadow-sm text-green-500"></i></button>
+            class="fa fa-check flex border border-black border-opacity-50 rounded-full shadow-sm text-green-500 p-1"></i></button>
       </div>
-      <div class="justify-center flex flex-row">
-        <p clas="text-lg font-bold ml-6 pl-6 text-center justify-center text-3xl">This is a Placeholder text</p>
-      </div>
-      <div class="justify-start flex space-x-1 text-lg pl-24">
+      <div class="flex lg:flex-1 text-lg border-1 border-black" (click)="onTodoClicked()"
+        [class.completed]="todo.completed" *ngIf="!todo.completed">
         <button type="button"><i
-            class="fa fa-trash border-black border border-opacity-50 shadow-sm text-gray-500 p-1"></i></button>
-        <button type="button"><i
-            class="fa fa-pencil border border-black border-opacity-50 shadow-sm text-gray-500 p-1"></i></button>
+            class="fa fa-check flex border border-black border-opacity-50 rounded-full shadow-sm text-gray-400 text-opacity-30 hover:text-green-500 p-1"></i></button>
       </div>
-
+      <div class="flex items-center line-clamp-1 hover:line-clamp-none lg:flex-auto" *ngIf="todo.text.length > 35">
+        <p class="text-center text-md font-semibold hover:line-clamp-none">{{todo.text}}</p>
+      </div>
+      <div class="flex items-center lg:flex-auto" *ngIf="todo.text.length < 35">
+        <p class="text-center text-md font-semibold">{{todo.text}}</p>
+      </div>
+      <div class="justify-start flex space-x-1 text-lg ">
+        <button type="button"><i
+            class="fa fa-pencil border-black border border-opacity-50 shadow-sm text-gray-500 p-1"></i></button>
+        <button type="button"><i
+            class="fa fa-trash border border-black border-opacity-50 shadow-sm text-gray-500 p-1"></i></button>
+      </div>
     </div>
   </div>
