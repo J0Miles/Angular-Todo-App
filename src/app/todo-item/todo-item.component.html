@@ -10,12 +10,18 @@
         <button type="button"><i
             class="fa fa-check flex border border-black border-opacity-50 rounded-full shadow-sm text-gray-400 text-opacity-30 hover:text-green-500 p-1"></i></button>
       </div>
-      <div class="flex items-center line-clamp-1 hover:line-clamp-none lg:flex-auto" *ngIf="todo.text.length > 35">
+      <div class="flex items-center line-clamp-1 hover:line-clamp-none lg:flex-auto"
+        *ngIf="todo.text.length > 35 && !todo.completed">
         <p class="text-center text-md font-semibold hover:line-clamp-none">{{todo.text}}</p>
       </div>
-      <div class="flex items-center lg:flex-auto" *ngIf="todo.text.length < 35">
+      <div class="flex items-center lg:flex-auto" *ngIf="todo.text.length < 35 && !todo.completed">
         <p class="text-center text-md font-semibold">{{todo.text}}</p>
       </div>
+
+      <div class="flex items-center lg:flex-auto" *ngIf="todo.completed">
+        <p class="text-center text-md font-semibold line-through">{{todo.text}}</p>
+      </div>
+
       <div class="justify-start flex space-x-1 text-lg ">
         <button type="button"><i
             class="fa fa-pencil border-black border border-opacity-50 shadow-sm text-gray-500 p-1"></i></button>
