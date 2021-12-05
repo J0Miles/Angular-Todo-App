@@ -54,5 +54,7 @@
 </section>
 
 <section>
-  <app-todo-item class="flex items-center" *ngFor="let todo of todos" [todo]="todo"></app-todo-item>
+  <app-todo-item class="flex items-center" *ngFor="let todo of todos" [todo]="todo"
+    (todoClicked)="toggleCompleted(todo)" (deleteClicked)="deleteTodo(todo)" (editClicked)="editTodo(todo)">
+  </app-todo-item>
 </section>
