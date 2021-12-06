@@ -13,6 +13,7 @@ import { EditTodoDialogComponent } from '../edit-todo-dialog/edit-todo-dialog.co
 export class TodosComponent implements OnInit {
   todos!: Todo[]
   showValidationErrors!: boolean
+  isDark!: boolean
 
   constructor(private dataService: DataService, private dialog: MatDialog) {}
 
@@ -53,5 +54,33 @@ export class TodosComponent implements OnInit {
   deleteTodo(todo: Todo) {
     const index = this.todos.indexOf(todo)
     this.dataService.deleteTodo(index)
+  }
+
+  toggleTheme() {
+    this.isDark = !this.isDark
+    if (
+      localStorage['theme'] === 'dark' ||
+      (!('theme' in localStorage) &&
+        window.matchMedia('(prefers-color-scheme: dark)').matches)
+    ) {
+      document.documentElement.classList.add('dark')
+    }
+
+    if (this.isDark === false) {
+      document.documentElement.classList.remove('dark')
+      document.documentElement.classList.add('light')
+    }
+
+    // Whenever the user explicitly chooses light mode
+    // Whenever the user explicitly chooses light mode
+    localStorage['theme'] = 'light'
+
+    // Whenever the user explicitly chooses dark mode
+    localStorage['theme'] = 'dark'
+
+    // Whenever the user explicitly chooses to respect the OS preference
+    localStorage.removeItem('theme')
+    // this.isDark = !this.isDark
+    // console.log(this.isDark)
   }
 }

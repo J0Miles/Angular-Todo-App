@@ -1,19 +1,21 @@
-<section class="w-screen">
-  <div class="flex h-32 w-screen bg-gradient-to-r from-gray-200 via-gray-600 to-black justify-center">
-    <h1 class="font-sans font-bold self-center text-3xl text-white">Todos</h1>
-  </div>
+<div class="dark:bg-gray-900 h-screen">
+  <section class="w-screen dark:bg-gray-900">
+    <div
+      class="flex h-32 w-screen bg-gradient-to-r from-gray-200 via-gray-600 dark:bg-gradient-to-r dark:from-black dark:via-gray-600 dark:to-white to-black justify-center">
+      <h1 class="font-sans font-bold self-center text-3xl text-white">Todos</h1>
+    </div>
 
-  <div class="flex justify-center w-screen">
-    <div class="-mt-8 p-6 pb-8 w-3/5 lg:w-1/3 rounded-sm shadow-md bg-white">
-      <div class="justify-center">
-        <form #form="ngForm" (ngSubmit)="onFormSubmit(form)">
-          <h2 class="font-bold py-1">New Todo</h2>
-          <div class="flex space-x-2 text-center">
-            <input ngModel #todoTextField="ngModel" required minlength="2" name="text"
-              placeholder="Please enter a task here" class=" px-2
+    <div class="flex justify-center w-screen">
+      <div class="-mt-8 p-6 pb-8 w-3/5 lg:w-1/3 rounded-sm shadow-md bg-white dark:bg-gray-900">
+        <div class="justify-center">
+          <form #form="ngForm" (ngSubmit)="onFormSubmit(form)">
+            <h2 class="font-bold py-1 dark:text-white">New Todo</h2>
+            <div class="flex space-x-2 text-center">
+              <input ngModel #todoTextField="ngModel" required minlength="2" name="text"
+                placeholder="Please enter a task here" class=" px-2
             border
             border-gray-400
-            focus:outline-none focus:ring
+            focus:outline-none focus:ring-2
             py-1
             placeholder-gray-400
             text-gray-600
@@ -24,7 +26,7 @@
             outline-none
             h-8
             w-full">
-            <button class="px-2 py-1 
+              <button class="px-2 py-1 
             border-transparent 
             shadow-sm 
             text-sm 
@@ -36,25 +38,42 @@
             text-center
             hover:bg-blue-400 
             hover:text-white" type="submit">
-              <i class="fa fa-plus mr-1 self-center">
-              </i>Add
-            </button>
-          </div>
-          <div *ngIf="todoTextField.invalid && showValidationErrors">
-            <p class="text-red-500 text-sm" *ngIf="todoTextField.errors?.['required']">Todo cannot be empty!</p>
-            <p class="text-red-500 text-sm" *ngIf="!todoTextField.errors?.['minLength']">Todo must be at least 2
-              characters
-              long
-            </p>
-          </div>
-        </form>
+                <i class="fa fa-plus mr-1 self-center">
+                </i>Add
+              </button>
+            </div>
+            <div *ngIf="todoTextField.invalid && showValidationErrors">
+              <p class="text-red-500 text-sm" *ngIf="todoTextField.errors?.['required']">Todo cannot be empty!</p>
+              <p class="text-red-500 text-sm" *ngIf="!todoTextField.errors?.['minLength']">Todo must be at least 2
+                characters
+                long
+              </p>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+    <!-- Toggle -->
+    <div class="flex justify-end lg:mr-32 mb-4">
 
-<section>
-  <app-todo-item class="flex items-center" *ngFor="let todo of todos" [todo]="todo"
-    (todoClicked)="toggleCompleted(todo)" (deleteClicked)="deleteTodo(todo)" (editClicked)="editTodo(todo)">
-  </app-todo-item>
-</section>
+      <label for="toggle" class="flex items-center cursor-pointer">
+        <div class="relative">
+          <input type="checkbox" (click)="toggleTheme()" id="toggle" class="sr-only">
+          <div class="block bg-gray-400 dark:bg-white w-14 h-8 rounded-full"></div>
+          <!-- dot -->
+          <div class="dot absolute left-1 top-1 bg-white w-6 h-6 rounded-full transition"></div>
+        </div>
+        <div class="ml-2 text-gray-600 dark:text-white font-medium">
+          Theme
+        </div>
+      </label>
+
+    </div>
+  </section>
+
+  <section class="dark:bg-gray-900">
+    <app-todo-item class="flex items-center justify-center" *ngFor="let todo of todos" [todo]="todo"
+      (todoClicked)="toggleCompleted(todo)" (deleteClicked)="deleteTodo(todo)" (editClicked)="editTodo(todo)">
+    </app-todo-item>
+  </section>
+</div>

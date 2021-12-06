@@ -1,40 +1,40 @@
-  <div class="w-screen border-b-2 py-1 mt-2">
-    <div class="flex justify-center p-1 space-x-24 lg:space-x-96 todo-item">
+  <div class="justify-center w-screen content-evenly lg:w-2/3 border-b-2 py-1 mt-2">
+    <div class="grid grid-cols-3 gap-4 p-1 todo-item">
 
       <!-- Where we start to break template up based on conditionals for applied truncating and styles -->
       <div class="flex lg:flex-1 text-lg border-1 border-black" (click)="onTodoClicked()"
         [class.completed]="todo.completed" *ngIf="todo.completed">
         <button type="button"><i
-            class="fa fa-check flex border border-black border-opacity-50 rounded-full shadow-sm text-green-500 p-1"></i></button>
+            class="fa fa-check flex border border-black dark:border-white border-opacity-50 rounded-full shadow-sm text-green-500 p-1"></i></button>
       </div>
       <div class="flex lg:flex-1 text-lg border-1 border-black" (click)="onTodoClicked()"
         [class.completed]="todo.completed" *ngIf="!todo.completed">
         <button type="button"><i
-            class="fa fa-check flex border border-black border-opacity-50 rounded-full shadow-sm text-gray-400 text-opacity-30 hover:text-green-500 p-1"></i></button>
+            class="fa fa-check flex border border-black dark:border-white border-opacity-50 rounded-full shadow-sm text-gray-400 dark:text-white dark:hover:text-green-500 text-opacity-30 hover:text-green-500 p-1"></i></button>
       </div>
 
-      <div class="flex items-center text-center lg:flex-auto line-clamp-1 hover:line-clamp-none"
+      <div class="items-center text-center lg:flex-auto line-clamp-1 hover:line-clamp-none"
         *ngIf="todo.text.length > 41 && !todo.completed">
-        <p class="text-center text-md font-semibold">{{todo.text}}</p>
+        <p class="text-center text-md font-semibold dark:text-white">{{todo.text}}</p>
       </div>
-      <div class="flex items-center lg:flex-auto" *ngIf="todo.text.length < 41 && !todo.completed">
-        <p class="text-center text-md font-semibold">{{todo.text}}</p>
+      <div class="items-center lg:flex-auto" *ngIf="todo.text.length < 41 && !todo.completed">
+        <p class="text-center text-md font-semibold dark:text-white">{{todo.text}}</p>
       </div>
 
-      <div class="flex items-center lg:flex-auto line-clamp-1 hover:line-clamp-none"
+      <div class="items-center lg:flex-auto line-clamp-1 hover:line-clamp-none"
         *ngIf="todo.text.length > 41 && todo.completed">
-        <p class="text-center text-md font-semibold line-through">{{todo.text}}</p>
+        <p class="text-center text-md font-semibold line-through dark:text-white">{{todo.text}}</p>
       </div>
-      <div class="flex items-center lg:flex-auto" *ngIf="todo.text.length < 41 && todo.completed">
-        <p class="text-center text-md font-semibold line-through">{{todo.text}}</p>
+      <div class="items-center lg:flex-auto" *ngIf="todo.text.length < 41 && todo.completed">
+        <p class="text-center text-md font-semibold line-through dark:text-white">{{todo.text}}</p>
       </div>
       <!-- End of conditional style change -->
 
-      <div class="justify-start flex space-x-1 text-lg ">
+      <div class="flex justify-end space-x-1 text-lg">
         <button type="button" (click)="onEditClicked()"><i
-            class="fa fa-pencil border-black border border-opacity-50 shadow-sm text-gray-500 p-1"></i></button>
+            class="fa fa-pencil border-black border dark:border-white border-opacity-50 shadow-sm text-gray-500 dark:text-white p-1"></i></button>
         <button type="button" (click)="onDeleteClicked()"><i
-            class="fa fa-trash border border-black border-opacity-50 shadow-sm text-gray-500 p-1"></i></button>
+            class="fa fa-trash border border-black dark:border-white border-opacity-50 shadow-sm text-gray-500 dark:text-white p-1"></i></button>
       </div>
     </div>
   </div>
