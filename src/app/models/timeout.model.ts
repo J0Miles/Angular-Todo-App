@@ -1,13 +1,7 @@
-import { Idle } from '@ng-idle/core'
-
-export class TimeOut {
+export class Timeout {
   constructor(
-    public idleState: string,
-    public timedOut: boolean,
     public title: string,
-    public idle: Idle,
-    public countdown: number,
-    public timeoutSubscription: any,
-    public idleEndSubscription: any,
+    public timedOut: boolean = false,
+    public firstPing: number,
   ) {}
 }

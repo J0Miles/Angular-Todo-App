@@ -9,9 +9,7 @@ import { TodoItemComponent } from './todo-item/todo-item.component'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { EditTodoDialogComponent } from './edit-todo-dialog/edit-todo-dialog.component'
 import { MatDialogModule } from '@angular/material/dialog'
-import { IdleModalComponent } from './idle-modal/idle-modal.component'
-import { NgIdleKeepaliveModule } from '@ng-idle/keepalive'
-import { HttpClientModule } from '@angular/common/http'
+import { IdleTimerComponent } from './idle-timer/idle-timer.component'
 
 @NgModule({
   declarations: [
@@ -19,7 +17,7 @@ import { HttpClientModule } from '@angular/common/http'
     TodosComponent,
     TodoItemComponent,
     EditTodoDialogComponent,
-    IdleModalComponent,
+    IdleTimerComponent,
   ],
   imports: [
     BrowserModule,
@@ -27,8 +25,6 @@ import { HttpClientModule } from '@angular/common/http'
     FormsModule,
     MatDialogModule,
     BrowserAnimationsModule,
-    NgIdleKeepaliveModule.forRoot(),
-    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
